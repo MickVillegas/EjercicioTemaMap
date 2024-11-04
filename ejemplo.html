@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        let numbers = [1, 2, 3, 4, 5, 6]
+        let numSqrt = numbers.map( numero = (numbero, i) => { return numbero * numbero} );
+        console.log(numbers)
+
+
+        let menu = [{
+            width: "200",
+            height: "300",
+            title: "Mi menu"
+        }];
+        //console.log(menu.width)
+        function multiplicarNumeros(menu){
+            arr = [parseInt(menu.width) * 2, parseInt(menu.height) * 2, menu.title]
+            return arr
+        }
+        menu = menu.map(multiplicarNumeros)
+        console.log(menu)
+       
+      
+
+        let salarios = [{
+  	        Juan: 10000,
+  	        Alicia: 16000,
+  	        Lucas: 13000
+        }]
+
+        salarios.reduce((acum, valorac, i) => {console.log( acum + ((acum + valorac.Juan) + (acum + valorac.Alicia) + (acum + valorac.Lucas)))}, 0)
+
+
+        const iceCreams = [
+            { flavor: 'pineapple', color: 'white' },
+            { flavor: 'strawberry', color: 'red' },
+            { flavor: 'watermelon', color: 'red' },
+            { flavor: 'kiwi', color: 'green' },
+            { flavor: 'mango', color: 'yellow' },
+            { flavor: 'pear', color: 'green' }
+        ];
+
+        let soloROjos = iceCreams.filter((valoractu, i) => {return valoractu.color == "red"})
+        console.log(soloROjos)
+
+        let soloSabor = iceCreams.map((valllor, i) => {return valllor.flavor})
+        console.log(soloSabor)
+
+        
+        let pilotos = [
+            {
+	        id: 10,
+	        name: "Poe Dameron",
+	        years: 14,
+            },
+            {
+	        id: 2,
+	        name: "Temmin 'Snap' Wexley",
+	        years: 30,
+            },
+            {
+	        id: 41,
+	        name: "Tallissan Lintra",
+	        years: 16,
+            },
+            {
+	        id: 99,
+	        name: "Ello Asty",
+	        years: 22,
+            }
+        ];
+
+        let tot = pilotos.reduce((acumulo, actu, i) => {return acumulo + actu.years}, 0)
+        console.log("Años totales " + tot)
+        
+        let mayorAnio = 0;
+
+        function darMayor(){
+            for (let i = 0; i < pilotos.length; i++) {
+                if(pilotos[i].years > mayorAnio)
+                mayorAnio = pilotos[i].years
+            }
+            return mayorAnio
+        }
+        console.log(darMayor())
+        
+
+       let pilotoPrime = pilotos.filter((actual, i) => {return actual.years == darMayor()})
+        console.log(pilotoPrime)
+
+
+        var pilots = [
+            {
+	        id: 2,
+	        name: "Wedge Antilles",
+	        faction: "Rebels",
+            },
+            {
+	        id: 8,
+            name: "Wedge Antilles",
+            faction: "Rebels",
+            },
+            {
+	        id: 40,
+	        name: "Iden Versio",
+	        faction: "Empire",
+            },
+            {
+	        id: 66,
+	        name: "Thane Kyrell",
+	        faction: "Rebels",
+            }
+        ];
+
+        let reveldes = pilots.filter((ac, i) => {return ac.faction == "Rebels"})
+        console.log(reveldes)
+
+        var personnel = [
+            {
+	        id: 5,
+	        name: "Luke Skywalker",
+	        pilotingScore: 98,
+	        shootingScore: 56,
+	        isForceUser: true,
+            },
+            {
+	        id: 82,
+	        name: "Sabine Wren",
+	        pilotingScore: 73,
+	        shootingScore: 99,
+	        isForceUser: false,
+            },
+            {
+	        id: 22,
+	        name: "Zeb Orellios",
+	        pilotingScore: 20,
+	        shootingScore: 59,
+	        isForceUser: false,
+            },
+            {
+	        id: 15,
+	        name: "Ezra Bridger",
+	        pilotingScore: 43,
+	        shootingScore: 67,
+	        isForceUser: true,
+            },
+            {
+	        id: 11,
+	        name: "Caleb Dume",
+	        pilotingScore: 71,
+	        shootingScore: 85,
+	        isForceUser: true,
+            },
+        ];
+
+
+
+    </script>
+    
+</body>
+</html>
