@@ -6,27 +6,28 @@
     <title>Document</title>
 </head>
 <body>
-
+<h1>Los resultados están imprimidos en la consola</h1>
     <script>
-        let numbers = [1, 2, 3, 4, 5, 6]
-        let numSqrt = numbers.map( numero = (numbero, i) => { return numbero * numbero} );
-        console.log(numbers)
 
+//-------------------------EJERCICIO 1-------------------------
+console.log("-------------------------EJERCICIO 1-------------------------")
 
         let menu = [{
             width: "200",
             height: "300",
             title: "Mi menu"
         }];
-        //console.log(menu.width)
+
         function multiplicarNumeros(menu){
-            arr = [parseInt(menu.width) * 2, parseInt(menu.height) * 2, menu.title]
-            return arr
+            menu.width = menu.width * 2
+            menu.height = menu.height * 2
+            return menu;
         }
         menu = menu.map(multiplicarNumeros)
         console.log(menu)
        
-      
+//-------------------------EJERCICIO 2-------------------------
+console.log("-------------------------EJERCICIO 2-------------------------")
 
         let salarios = [{
   	        Juan: 10000,
@@ -34,8 +35,10 @@
   	        Lucas: 13000
         }]
 
-        salarios.reduce((acum, valorac, i) => {console.log( acum + ((acum + valorac.Juan) + (acum + valorac.Alicia) + (acum + valorac.Lucas)))}, 0)
-
+        let sumaTotal = salarios.reduce((acum, valorac) => {return acum + valorac.Juan +  valorac.Alicia + valorac.Lucas}, 0)
+        console.log(sumaTotal)
+//-------------------------EJERCICIO 3-------------------------
+console.log("-------------------------EJERCICIO 3-------------------------")
 
         const iceCreams = [
             { flavor: 'pineapple', color: 'white' },
@@ -48,10 +51,12 @@
 
         let soloROjos = iceCreams.filter((valoractu, i) => {return valoractu.color == "red"})
         console.log(soloROjos)
-
+//-------------------------EJERCICIO 3.2-------------------------
         let soloSabor = iceCreams.map((valllor, i) => {return valllor.flavor})
         console.log(soloSabor)
 
+//-------------------------EJERCICIO 4-------------------------
+console.log("-------------------------EJERCICIO 4-------------------------")
         
         let pilotos = [
             {
@@ -78,22 +83,17 @@
 
         let tot = pilotos.reduce((acumulo, actu, i) => {return acumulo + actu.years}, 0)
         console.log("Años totales " + tot)
-        
-        let mayorAnio = 0;
-
-        function darMayor(){
-            for (let i = 0; i < pilotos.length; i++) {
-                if(pilotos[i].years > mayorAnio)
-                mayorAnio = pilotos[i].years
+//-------------------------EJERCICIO 4.2-------------------------        
+       let mayorAnio = pilotos.reduce((acumulo, actual) => {
+            if(acumulo.years < actual.years){
+                acumulo = actual
             }
-            return mayorAnio
-        }
-        console.log(darMayor())
-        
+            return acumulo
+        })
+        console.log(mayorAnio)
 
-       let pilotoPrime = pilotos.filter((actual, i) => {return actual.years == darMayor()})
-        console.log(pilotoPrime)
-
+//-------------------------EJERCICIO 5-------------------------
+console.log("-------------------------EJERCICIO 5-------------------------")
 
         var pilots = [
             {
@@ -120,6 +120,9 @@
 
         let reveldes = pilots.filter((ac, i) => {return ac.faction == "Rebels"})
         console.log(reveldes)
+
+//-------------------------EJERCICIO 6-------------------------
+console.log("-------------------------EJERCICIO 6-------------------------")
 
         var personnel = [
             {
@@ -159,7 +162,15 @@
             },
         ];
 
+        let sumaPiloto = personnel.filter((actul) => actul.isForceUser === true).map((acc) => acc.pilotingScore).reduce((acum, accc) => acum + accc, 0)
+        let puntosTiros = personnel.filter((actul) => actul.isForceUser === true).map((acc) => acc.shootingScore).reduce((acum, accc) => acum + accc, 0)
 
+        //console.log(sumaPiloto)
+        //console.log(puntosTiros)
+
+        let totalpun = (parseInt(sumaPiloto) + parseInt(puntosTiros))
+
+        console.log("La suma total de todos los puntos de todos los pilotos que es un usuario de fuerza es de " + totalpun + " puntos")
 
     </script>
     
