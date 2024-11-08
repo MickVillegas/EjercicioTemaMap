@@ -48,10 +48,15 @@ console.log("-------------------------EJERCICIO 3-------------------------")
             { flavor: 'mango', color: 'yellow' },
             { flavor: 'pear', color: 'green' }
         ];
+//-------------------------EJERCICIO 3.1-------------------------
+
+        console.log("-------------------------EJERCICIO 3.1-------------------------")
 
         let soloROjos = iceCreams.filter((valoractu, i) => {return valoractu.color == "red"})
         console.log(soloROjos)
 //-------------------------EJERCICIO 3.2-------------------------
+console.log("-------------------------EJERCICIO 3.2-------------------------")
+
         let soloSabor = iceCreams.map((valllor, i) => {return valllor.flavor})
         console.log(soloSabor)
 
@@ -80,10 +85,23 @@ console.log("-------------------------EJERCICIO 4-------------------------")
 	        years: 22,
             }
         ];
+//-------------------------EJERCICIO 4.1-------------------------    
+console.log("-------------------------EJERCICIO 4.1-------------------------")
+
+
+        let tot2 = pilotos.reduce(function(acumulo, actu){
+            return acumulo + actu.years
+        }, 0)
+
+        console.log("Años totales " + tot2)
+//-------------------------EJERCICIO 4.2-------------------------        
+console.log("-------------------------EJERCICIO 4.2-------------------------")
 
         let tot = pilotos.reduce((acumulo, actu, i) => {return acumulo + actu.years}, 0)
         console.log("Años totales " + tot)
-//-------------------------EJERCICIO 4.2-------------------------        
+//-------------------------EJERCICIO 4.3-------------------------    
+console.log("-------------------------EJERCICIO 4.3-------------------------")
+
        let mayorAnio = pilotos.reduce((acumulo, actual) => {
             if(acumulo.years < actual.years){
                 acumulo = actual
@@ -117,6 +135,18 @@ console.log("-------------------------EJERCICIO 5-------------------------")
 	        faction: "Rebels",
             }
         ];
+//-------------------------EJERCICIO 5.1-------------------------
+console.log("-------------------------EJERCICIO 5.1-------------------------")
+
+
+        let reveldes2 = pilots.filter(function(ac){
+            return ac.faction == "Rebels"
+        })
+
+        console.log(reveldes2)
+//-------------------------EJERCICIO 5.2-------------------------
+console.log("-------------------------EJERCICIO 5.2-------------------------")
+
 
         let reveldes = pilots.filter((ac, i) => {return ac.faction == "Rebels"})
         console.log(reveldes)
@@ -161,12 +191,37 @@ console.log("-------------------------EJERCICIO 6-------------------------")
 	        isForceUser: true,
             },
         ];
+//-------------------------EJERCICIO 6.1-------------------------
+console.log("-------------------------EJERCICIO 6.1-------------------------")
+
+
+        let sumaPiloto2 = personnel.filter(function(actul){
+            return actul.isForceUser === true
+        }).map(function(acc){
+            return acc.pilotingScore
+        }).reduce(function(acum, accc){
+           return acum + accc
+        }, 0)
+
+        let puntosTiros2 = personnel.filter(function(actul){
+            return actul.isForceUser === true
+        }).map(function(acc){
+            return acc.shootingScore
+        }).reduce(function(acum, accc){
+           return acum + accc
+        }, 0)
+
+        let totalpun2 = (parseInt(sumaPiloto2) + parseInt(puntosTiros2))
+        console.log("La suma total de todos los puntos de todos los pilotos que es un usuario de fuerza es de " + totalpun2 + " puntos")
+//-------------------------EJERCICIO 6.2-------------------------
+console.log("-------------------------EJERCICIO 6.2-------------------------")
+
 
         let sumaPiloto = personnel.filter((actul) => actul.isForceUser === true).map((acc) => acc.pilotingScore).reduce((acum, accc) => acum + accc, 0)
         let puntosTiros = personnel.filter((actul) => actul.isForceUser === true).map((acc) => acc.shootingScore).reduce((acum, accc) => acum + accc, 0)
 
-        //console.log(sumaPiloto)
-        //console.log(puntosTiros)
+      //  console.log(sumaPiloto)
+      //  console.log(puntosTiros)
 
         let totalpun = (parseInt(sumaPiloto) + parseInt(puntosTiros))
 
